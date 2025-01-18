@@ -1,10 +1,13 @@
 package main
 
-import "log"
+import (
+	"log"
+	"lx/internal/env"
+)
 
 func main() {
 	cfg := config{
-		addr: "localhost:8080",
+		addr: env.GetString("ADDR", ":8080"),
 	}
 
 	app := &application{config: cfg}
